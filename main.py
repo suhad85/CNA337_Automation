@@ -13,9 +13,23 @@ def print_program_info():
 # This is the entry point to our program
 if __name__ == '__main__':
     print_program_info()
-    ip_address = " 18.218.223.251"
-    server = Server(ip_address)
-    result = server.ping()
-    print(result)
-    if result == 0:
-        print("Server with ip [%s] is up." % ip_address)
+    # TODO - Create a Server object
+    # TODO - Call Ping method and print the results
+
+    my_server_ip = " 18.218.223.251"
+    my_rsa_key_file = "C:\\Users\\suhad\\Desktop\\Keys\\privet"
+    username = "ubuntu"
+
+    my_upgrade_command = 'sudo apt update && sudo apt upgrade -y'
+    my_server = Server(my_server_ip, my_rsa_key_file, username, my_upgrade_command)
+
+    print('Pinging server %s...' % my_server_ip)
+    ping_result = my_server.ping()
+    print(ping_result)
+    if ping_result == 0:
+        print("Pinging IP [%s] successful." % my_server_ip)
+    else:
+        print("Pinging IP [%s] Failed." % my_server_ip)
+
+    print("\nUpdating server using ssh client from paramiko...")
+
