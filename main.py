@@ -16,8 +16,8 @@ if __name__ == '__main__':
     # TODO - Create a Server object
     # TODO - Call Ping method and print the results
 
-    my_server_ip = " 18.218.223.251"
-    my_rsa_key_file = "C:\\Users\\suhad\\Desktop\\Keys\\privet"
+    my_server_ip = "18.223.162.160"
+    my_rsa_key_file = "C:\\Users\\suhad\\.ssh\\id_rsa"
     username = "ubuntu"
 
     my_upgrade_command = 'sudo apt update && sudo apt upgrade -y'
@@ -32,4 +32,7 @@ if __name__ == '__main__':
         print("Pinging IP [%s] Failed." % my_server_ip)
 
     print("\nUpdating server using ssh client from paramiko...")
+    ssh_result = my_server.upgrade()
+    print(''.join(ssh_result))
 
+    print('Done.')
